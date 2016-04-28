@@ -1,0 +1,9 @@
+"*":
+  core:
+    disabledPackages: [
+      "vim-mode-plus"
+    ]
+  "exception-reporting":
+    userId: "3c659af1-8a2b-4b1a-872f-04db1d4b1990"
+  welcome:
+    showOnStartup: false
