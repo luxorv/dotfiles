@@ -1,0 +1,76 @@
+#""""""""""""""""""""
+# TMUX CONFIG FILE  |
+#""""""""""""""""""""
+
+# Unbind default tmux prefix key to `
+unbind C-b
+set -g prefix `
+bind ` send-prefix
+
+# Bind L to open the last window
+bind-key p last-window
+
+# Set terminal color
+set -g default-terminal "screen-256color"
+
+# set scrollback history to 10000 (10k)
+set -g history-limit 10000
+
+# Use send-prefix to pass C-a through to application
+bind C-a send-prefix
+
+# reload ~/.tmux.conf using PREFIX r
+bind r source-file ~/.tmux.conf \; display "Reloaded!"
+
+# Use PREFIX | to split window horizontally and PREFIX - to split vertically
+bind \ split-window -h
+bind - split-window -v
+
+# Make the current window the first window
+bind T swap-window -t 1
+
+# and use C-h and C-l to cycle thru panes
+bind -r C-h select-window -t :-
+bind -r C-l select-window -t :+
+
+
+# ---------------------
+# Copy & Paste
+# ---------------------
+# provide access to the clipboard for pbpaste, pbcopy
+#set-option -g default-command "reattach-to-user-namespace -l zsh"
+#set-window-option -g automatic-rename on
+
+# use vim keybindings in copy mode
+setw -g mode-keys vi
+
+# setup 'v' to begin selection as in Vim
+bind-key -t vi-copy v begin-selection
+bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+
+source /usr/local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf
+
+set-option -g status on
+set-option -g status-interval 2
+set-option -g status-utf8 on
+set-option -g status-justify "centre"
+set-option -g status-left-length 60
+set-option -g status-right-length 90
+set-option -g status-left "#(~/.tmux/plugins/tmux-powerline/powerline.sh left)"
+set-option -g status-right "#(~/.tmux/plugins/tmux-powerline/powerline.sh right)"
+set-window-option -g window-status-current-format "#[fg=colour235, bg=colour27]#[fg=colour255, bg=colour27] #I #W #[fg=colour27, bg=colour235]"
+
+bind C-[ run '~/.tmux/plugins/tmux-powerline/mute_powerline.sh left'      # Mute left statusbar.
+bind C-] run '~/.tmux/plugins/tmux-powerline/mute_powerline.sh right'     # Mute right statusbar.
+
+# resize panes using PREFIX H, J, K, L
+bind h resize-pane -L 5
+bind j resize-pane -D 5
+bind k resize-pane -U 5
+bind l resize-pane -R 5
+
+# toggle statusbar
+bind-key b set-option status
+
+PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+
