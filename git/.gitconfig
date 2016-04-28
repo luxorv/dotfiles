@@ -1,0 +1,7 @@
+[color]
+	ui = true
+[user]
+	name = luxorv
+	email = vmp2408@gmail.com
+[core]
+	editor = vim
