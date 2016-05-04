@@ -4,3 +4,5 @@
 # Vim folders
 .vimswap
 .vimundo
+.vimviews
+.vimbackup

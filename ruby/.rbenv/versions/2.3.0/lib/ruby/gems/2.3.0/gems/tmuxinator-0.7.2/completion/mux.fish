@@ -1,0 +1,1 @@
+/Users/Luxorv/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/tmuxinator-0.7.2/tmuxinator.fish
