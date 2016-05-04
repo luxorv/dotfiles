@@ -1,0 +1,155 @@
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+argglobal
+let s:cpo_save=&cpo
+set cpo&vim
+inoremap <buffer> <silent> <BS> =AutoPairsDelete()
+nmap <buffer> gf <Plug>RailsTabFind
+nmap <buffer>  <Plug>RailsSplitFind
+nmap <buffer> f <Plug>RailsSplitFind
+nnoremap <buffer> <silent> g} :exe        "ptjump =RubyCursorIdentifier()"
+nnoremap <buffer> <silent> } :exe          "ptag =RubyCursorIdentifier()"
+nnoremap <buffer> <silent> g] :exe      "stselect =RubyCursorIdentifier()"
+nnoremap <buffer> <silent> g :exe        "stjump =RubyCursorIdentifier()"
+nnoremap <buffer> <silent>  :exe v:count1."stag =RubyCursorIdentifier()"
+nnoremap <buffer> <silent> ] :exe v:count1."stag =RubyCursorIdentifier()"
+nnoremap <buffer> <silent>  :exe  v:count1."tag =RubyCursorIdentifier()"
+inoremap <buffer> <silent> î :call AutoPairsJump()a
+inoremap <buffer> <silent> <expr> ð AutoPairsToggle()
+inoremap <buffer> <silent> â =AutoPairsBackInsert()
+inoremap <buffer> <silent> å =AutoPairsFastWrap()
+nmap <buffer> gf <Plug>RailsFind
+nnoremap <buffer> <silent> g] :exe       "tselect =RubyCursorIdentifier()"
+nnoremap <buffer> <silent> g :exe         "tjump =RubyCursorIdentifier()"
+inoremap <buffer> <silent>  =AutoPairsDelete()
+cmap <buffer>  <Plug><cfile>
+inoremap <buffer> <silent>   =AutoPairsSpace()
+inoremap <buffer> <silent> " =AutoPairsInsert('"')
+inoremap <buffer> <silent> ' =AutoPairsInsert('''')
+inoremap <buffer> <silent> ( =AutoPairsInsert('(')
+inoremap <buffer> <silent> ) =AutoPairsInsert(')')
+noremap <buffer> <silent> î :call AutoPairsJump()
+noremap <buffer> <silent> ð :call AutoPairsToggle()
+inoremap <buffer> <silent> [ =AutoPairsInsert('[')
+inoremap <buffer> <silent> ] =AutoPairsInsert(']')
+inoremap <buffer> <silent> ` =AutoPairsInsert('`')
+inoremap <buffer> <silent> { =AutoPairsInsert('{')
+inoremap <buffer> <silent> } =AutoPairsInsert('}')
+let &cpo=s:cpo_save
+unlet s:cpo_save
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal backupcopy=
+setlocal nobinary
+setlocal nobreakindent
+setlocal breakindentopt=
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal colorcolumn=
+setlocal comments=:#
+setlocal commentstring=#\ %s
+setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=i
+setlocal conceallevel=2
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+setlocal cursorline
+setlocal define=^\\s*def\\s\\+\\(self\\.\\)\\=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=%\\S%\\+\ \ %#%[cefi]%[rxod]%[eir]%[a-z]%#%\\x1b[0m\ %\\+%\\S%\\+%$%\\&%\\x1b%\\S%\\+\ \ %#%m%\\>%\\x1b[0m\ \ %#%f,%\\s\ %#%[cefi]%[rxod]%[eir]%[a-z]%#\ %\\+%\\S%\\+%$%\\&%\\s\ %#%m%\\>\ \ %#%f,Overwrite%.%#%\\S%\\+\ \ %#%m%\\x1b[0m\ \ %#%f,%-GOverwrite%.%#\"h\"%.%#,%.%#rails\ test\ %f:%l,%+GCurrent\ version:%.%#,%+G\ %#Status\ %#Migration\ ID%.%#,%+G\ The\ fixture\ ID\ for\ %.%#,%f:\ %s\ (%m)%$%\\&%.%#/fixtures/%.%#(%\\d%\\+),%+G\ %#Prefix\ %#Verb%.%#,%+G\ %#Code\ LOC:\ %.%#,%+GAbout\ your\ application's\ environment,%+Grun\ %\\S%#::Application.routes,%+Irails\ %\\S%\\+%\\s%\\+#\ %.%#,%+Eruby:%.%#(LoadError),%+EUsage:%.%#,%+ECould\ not\ find\ generator%.%#,%+EType\ 'rails'\ for\ help.,%D(in\ %f),%\\s%#from\ %f:%l:%m,%\\s%#from\ %f:%l:,%\\s%##\ %f:%l:%m,%\\s%##\ %f:%l,%\\s%#[%f:%l:\ %#%m,%\\s%#%f:%l:\ %#%m,%\\s%#%f:%l:,%m\ [%f:%l]:,chdir\ /Users/Luxorv/Development/Momo/momo-api.old
+setlocal expandtab
+if &filetype != 'ruby'
+setlocal filetype=ruby
+endif
+setlocal fixendofline
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=croql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=0
+setlocal include=^\\s*\\<\\(load\\>\\|require\\>\\|autoload\\s*:\\=[\"']\\=\\h\\w*[\"']\\=,\\)
+setlocal includeexpr=rails#includeexpr(v:fname)
+setlocal indentexpr=GetRubyIndent(v:lnum)
+setlocal indentkeys=0{,0},0),0],!^F,o,O,e,=end,=else,=elsif,=when,=ensure,=rescue,==begin,==end
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=ri
+setlocal nolinebreak
+setlocal nolisp
+setlocal lispwords=
+setlocal list
+setlocal makeprg=bundle\ exec\ rake
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=bin,octal,hex
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=
+setlocal path=~/Development/Momo/momo-api.old/lib,~/Development/Momo/momo-api.old/vendor,~/Development/Momo/momo-api.old/app/models/concerns,~/Development/Momo/momo-api.old/app/controllers/concerns,~/Development/Momo/momo-api.old/app/controllers,~/Development/Momo/momo-api.old/app/helpers,~/Development/Momo/momo-api.old/app/mailers,~/Development/Momo/momo-api.old/app/models,~/Development/Momo/momo-api.old/app/*,~/Development/Momo/momo-api.old/app/views,~/Development/Momo/momo-api.old/spec,~/Development/Momo/momo-api.old/spec/controllers,~/Development/Momo/momo-api.old/spec/helpers,~/Development/Momo/momo-api.old/spec/mailers,~/Development/Momo/momo-api.old/spec/models,~/Development/Momo/momo-api.old/spec/views,~/Development/Momo/momo-api.old/spec/lib,~/Development/Momo/momo-api.old/spec/features,~/Development/Momo/momo-api.old/spec/requests,~/Development/Momo/momo-api.old/spec/integration,~/Development/Momo/momo-api.old/vendor/plugins/*/lib,~/Development/Momo/momo-api.old/vendor/plugins/*/test,~/Development/Momo/momo-api.
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norelativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=2
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=2
+setlocal spell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=%!airline#statusline(1)
+setlocal suffixesadd=.rb
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'ruby'
+setlocal syntax=ruby
+endif
+setlocal tabstop=4
+setlocal tagcase=
+setlocal tags=~/Development/Momo/momo-api.old/tags,~/Development/Momo/momo-api.old/tmp/tags,./tags;/,~/.vimtags,~/Development/Momo/momo-api.old/.git/tags,/usr/local/Cellar/rbenv/1.0.0/rbenv.d/exec/gem-rehash/tags,~/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/did_you_mean-1.0.0/lib/tags,~/.rbenv/versions/2.3.0/lib/ruby/site_ruby/2.3.0/tags,~/.rbenv/versions/2.3.0/lib/ruby/site_ruby/2.3.0/x86_64-darwin15/tags,~/.rbenv/versions/2.3.0/lib/ruby/site_ruby/tags,~/.rbenv/versions/2.3.0/lib/ruby/vendor_ruby/2.3.0/tags,~/.rbenv/versions/2.3.0/lib/ruby/vendor_ruby/2.3.0/x86_64-darwin15/tags,~/.rbenv/versions/2.3.0/lib/ruby/vendor_ruby/tags,~/.rbenv/versions/2.3.0/lib/ruby/2.3.0/tags,~/.rbenv/versions/2.3.0/lib/ruby/2.3.0/x86_64-darwin15/tags
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal undofile
+setlocal undolevels=-123456
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal nowrap
+setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 6 - ((5 * winheight(0) + 14) / 28)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+6
+normal! 0
+lcd ~/Development/Momo/momo-api.old/app/models
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+" vim: set ft=vim :

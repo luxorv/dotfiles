@@ -1,0 +1,204 @@
+{
+  "name": "build-xcodebuild",
+  "version": "0.2.0",
+  "description": "Runs Xcodebuild",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AtomBuild/build-xcodebuild.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": "^1.0.0"
+  },
+  "providedServices": {
+    "builder": {
+      "versions": {
+        "2.0.0": "provideBuilder"
+      }
+    }
+  },
+  "dependencies": {
+    "glob": "^6.0.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^4.1.5",
+    "eslint": "^1.10.1",
+    "eslint-config-atom-build": "^1.0.0"
+  },
+  "keywords": [
+    "build",
+    "compile",
+    "xcode",
+    "ios",
+    "os x",
+    "objective-c",
+    "swift",
+    "productivity"
+  ],
+  "main": "lib/main.js",
+  "readme": "# build-xcodebuild\nBuild Xcode schemes in Atom using `xcodebuild`.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/AtomBuild/build-xcodebuild/issues"
+  },
+  "homepage": "https://github.com/AtomBuild/build-xcodebuild#readme",
+  "_id": "build-xcodebuild@0.2.0",
+  "_shasum": "95e670f3cd124b91f194ba876b118005089c3c5c",
+  "_resolved": "file:../d-116328-14811-10e994m/package.tgz",
+  "_from": "../d-116328-14811-10e994m/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "glob",
+        "version": "6.0.4",
+        "path": "node_modules/glob/glob.js"
+      },
+      {
+        "name": "inflight",
+        "version": "1.0.4",
+        "path": "node_modules/glob/node_modules/inflight/inflight.js"
+      },
+      {
+        "name": "wrappy",
+        "version": "1.0.1",
+        "path": "node_modules/glob/node_modules/inflight/node_modules/wrappy/wrappy.js"
+      },
+      {
+        "name": "inherits",
+        "version": "2.0.1",
+        "path": "node_modules/glob/node_modules/inherits/inherits.js"
+      },
+      {
+        "name": "minimatch",
+        "version": "3.0.0",
+        "path": "node_modules/glob/node_modules/minimatch/minimatch.js"
+      },
+      {
+        "name": "brace-expansion",
+        "version": "1.1.3",
+        "path": "node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/index.js"
+      },
+      {
+        "name": "balanced-match",
+        "version": "0.3.0",
+        "path": "node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/index.js"
+      },
+      {
+        "name": "concat-map",
+        "version": "0.0.1",
+        "path": "node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/index.js"
+      },
+      {
+        "name": "once",
+        "version": "1.3.3",
+        "path": "node_modules/glob/node_modules/once/once.js"
+      },
+      {
+        "name": "wrappy",
+        "version": "1.0.1",
+        "path": "node_modules/glob/node_modules/once/node_modules/wrappy/wrappy.js"
+      },
+      {
+        "name": "path-is-absolute",
+        "version": "1.0.0",
+        "path": "node_modules/glob/node_modules/path-is-absolute/index.js"
+      }
+    ],
+    "extensions": {
+      ".js": [
+        "lib/main.js",
+        "node_modules/glob/common.js",
+        "node_modules/glob/glob.js",
+        "node_modules/glob/node_modules/inflight/inflight.js",
+        "node_modules/glob/node_modules/inflight/node_modules/wrappy/wrappy.js",
+        "node_modules/glob/node_modules/inflight/test.js",
+        "node_modules/glob/node_modules/inherits/inherits.js",
+        "node_modules/glob/node_modules/inherits/inherits_browser.js",
+        "node_modules/glob/node_modules/inherits/test.js",
+        "node_modules/glob/node_modules/minimatch/minimatch.js",
+        "node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/example.js",
+        "node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/index.js",
+        "node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/example.js",
+        "node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/index.js",
+        "node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/example/map.js",
+        "node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/index.js",
+        "node_modules/glob/node_modules/once/node_modules/wrappy/wrappy.js",
+        "node_modules/glob/node_modules/once/once.js",
+        "node_modules/glob/node_modules/path-is-absolute/index.js",
+        "node_modules/glob/sync.js"
+      ],
+      ".json": [
+        "node_modules/glob/node_modules/inflight/node_modules/wrappy/package.json",
+        "node_modules/glob/node_modules/inflight/package.json",
+        "node_modules/glob/node_modules/inherits/package.json",
+        "node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/package.json",
+        "node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/package.json",
+        "node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/package.json",
+        "node_modules/glob/node_modules/minimatch/package.json",
+        "node_modules/glob/node_modules/once/node_modules/wrappy/package.json",
+        "node_modules/glob/node_modules/once/package.json",
+        "node_modules/glob/node_modules/path-is-absolute/package.json",
+        "node_modules/glob/package.json",
+        "package.json"
+      ]
+    },
+    "folders": [
+      {
+        "paths": [
+          "lib",
+          ""
+        ],
+        "dependencies": {
+          "glob": "^6.0.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/glob"
+        ],
+        "dependencies": {
+          "inflight": "^1.0.4",
+          "inherits": "2",
+          "minimatch": "2 || 3",
+          "once": "^1.3.0",
+          "path-is-absolute": "^1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/glob/node_modules/inflight"
+        ],
+        "dependencies": {
+          "once": "^1.3.0",
+          "wrappy": "1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/glob/node_modules/minimatch"
+        ],
+        "dependencies": {
+          "brace-expansion": "^1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/glob/node_modules/minimatch/node_modules/brace-expansion"
+        ],
+        "dependencies": {
+          "balanced-match": "^0.3.0",
+          "concat-map": "0.0.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/glob/node_modules/once"
+        ],
+        "dependencies": {
+          "wrappy": "1"
+        }
+      }
+    ]
+  }
+}
