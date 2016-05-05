@@ -1,18 +1,8 @@
 #!/usr/bin/env sh
 
-# ======================== Install File =============================.
+# ======================== Bootstrap File =============================.
 
 dotfiles="$HOME/.dotfiles"
-
-# to error out
-warn() {
-  echo "$1" >&2
-}
-
-die() {
-  warn "$1"
-  exit 1
-}
 
 echo " ==== Installing/Updating dotfiles... ==== \n"
 
@@ -33,6 +23,10 @@ ln -s $doffiles/zsh/.zshrc $HOME/.zshrc
 ln -s $doffiles/zsh/.zsh_history $HOME/.zsh_history
 ln -s $doffiles/zsh/.zsh_update $HOME/.zsh_update
 ln -s $doffiles/zsh/.oh-my-zsh/ $HOME/.oh-my-zsh/
+
+# Setting zsh as default shell.
+echo "Configuring zsh as default shell"
+chsh -s $(which zsh)
 
 # Installing dev related tools and apps.
 echo "Setting up dev tools...\n"
