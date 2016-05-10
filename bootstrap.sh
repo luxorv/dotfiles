@@ -16,13 +16,12 @@ if ["$(uname)" == "Darwin"]; then
     source brew.sh
     # Set up OSX preferences!
     source osx.sh
+    # Install and Setup zsh.
+    source zsh.sh
 fi
 
 echo "Creating neovim directories..."
-mkdir -p ~/.vim-tmp
-
-echo "Configuring zsh as default Shell..."
-chsh -s $(which zsh)
+mkdir -p ~/.nvim-tmp
 
 echo " ==== Finished Installing dotfiles :D ==== \n"
 

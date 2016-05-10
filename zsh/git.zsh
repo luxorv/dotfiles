@@ -1,3 +1,5 @@
+# ======================== Git File =============================.
+
 # git aliases
 alias ga='git add'
 alias gb='git branch'
@@ -43,3 +45,5 @@ function g() {
         git s
     fi
 }
+
+# ======================== End of Git File =============================.

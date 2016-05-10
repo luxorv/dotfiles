@@ -1,3 +1,6 @@
+# ======================== GitIgnore File ===============================.
+
+
 # OSX files
 .DS_Store
 
@@ -6,3 +9,5 @@
 .vimundo
 .vimviews
 .vimbackup
+
+# ======================== End of GitIgnore File ========================.

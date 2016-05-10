@@ -1,20 +1,26 @@
-# ======================== Aliases File. ==============================.
+# ======================== Alias File. ==============================.
 
-# ======================== General. ===================================.
+# ------------------------ General. -----------------------------------.
 
 # Shortcuts.
-
 alias _="sudo"
 alias g="git"
 alias v="vim"
+alias vim="nvim"
 alias rr="rm -rf"
 alias json="json -c"
+alias rmf="rm -rf"
 
 # Miscellaneous.
-
 alias quit="exit"
 alias week="date +%V"
 alias speedtest="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
+
+# File size
+alias fs="stat -f \"%z bytes\""
+
+# Reload zsh config
+alias reload!='source ~/.zshrc'
 
 # Enable Alisases to be Sudoed.
 alias sudo='sudo '
@@ -23,9 +29,15 @@ alias sudo='sudo '
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 
+# One of @janmoesen’s ProTip™s
+for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
+    alias "$method"="lwp-request -m '$method'"
+done
 
+# Empty the Trash on all mounted volumes and the main HDD
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash"
 
-# ======================== OSX Specifics. ================================.
+# ------------------------ OSX Specifics. ---------------------------.
 
 # iOS Simulator.
 alias ios="open /Applications/Xcode.app/Contents/Developer/Applications/iOS\ Simulator.app"
@@ -43,3 +55,5 @@ alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && kil
 # Recursively Remove Apple Meta Files.
 alias cleanupds="find . -type f -name '*.DS_Store' -ls -exec /bin/rm {} \;"
 alias cleanupad="find . -type d -name '.AppleD*' -ls -exec /bin/rm -r {} \;"
+
+# ======================== End of Alias File. =============================.
