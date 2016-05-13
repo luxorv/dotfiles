@@ -1,6 +1,8 @@
-# dotfiles
+# Dotfiles
 
-This is a collection of me, of my workspace and my tools. Most of my dotfiles are vim, tmux, and zsh configurations.
+This dotfiles repository was highly influenced by Nick Nisi's [dotfiles repository](https://github.com/nicknisi/dotfiles.git) and uses Chriskempson's [base16-shell repository](https://github.com/chriskempson/base16-shell.git) for the shell colorscheme.
+
+This is a collection of me, of my workspace and my tools. Most of my dotfiles are vim/nvim, tmux, and zsh configurations.
 
 ## Contents
 
@@ -26,7 +28,7 @@ cd ~/.dotfiles
 ./install.sh
 ```
 
-`install.sh` will start by installing all symbolic links into your home directory. Every file with a `.symlink` extension will be symlinked to the home directory with a `.` in front of it. As an example, `vimrc.symlink` will be symlinked in the home directory as `~/.vimrc`. Then, this script will create a `~/.vim-tmp` directory in your home directory, as this is where vim is configured to place its temporary files.
+`install.sh` will start by initializing the submodules used by this repository. Then it will try to install all symbolic links into your home directory. Every file with a `.symlink` extension will be symlinked to the home directory with a `.` in front of it. As an example, `vimrc.symlink` will be symlinked in the home directory as `~/.vimrc`. Then, this script will create a `~/.vim-tmp` directory in your home directory, as this is where vim is configured to place its temporary files.
 
 Next, the install script will perform a check to see if it is running on an OSX machine. If so, it will install Homebrew if it is not currently installed and will install the homebrew packages listed in [`brew.sh`](install/brew.sh). Then, it will run [`osx.sh`](install/osx.sh) and change some OSX configurations. This file is pretty well documented and so it is advised that you __read through and comment out any changes you do not want__.
 
@@ -37,13 +39,14 @@ ZSH is configured in the `zshrc.symlink` file, which will be symlinked to the ho
 * Export the paths of the dotfiles and the oh-my-zsh directories
 * Recursively search the `$DOTFILES/zsh` directory for files ending in .zsh and source them
 * Init Rbenv
+* Set the base16 colorscheme to use for both the terminal (iTerm2) and vim/neovim by exporting the $THEME and $BACKGROUND environment variables
 * Set the robbyrussel zsh theme
 * Add custom plugins from oh-my-zsh
 * And more...
 
 ## Vim and Neovim Setup
 
-[Neovim](https://neovim.io/) is a fork and drop-in replacement for vim. in most cases, you would not notice a difference between the two, other than Neovim allows plugins to run asynchronously so that they do not freeze the editor, which is the main reason I have switched over to it. Vim and Neovim both use Vimscript and most plugins will work in both (all of the plugins I use do work in both Vim and Neovim). For this reason, they share the same configuration files in this setup. Neovim uses the [XDG base directory specification](http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html) which means it won't look for a `.vimrc` in your home directory. Instead, its configuration looks like the following:
+[Neovim](https://neovim.io/) is a fork and drop-in replacement for vim. They share the same configuration files in this setup but Neovim uses another directory specification which means it won't look for a `.vimrc` in your home directory. Instead, its configuration looks like the following:
 
 |                         | Vim        | Neovim                    |
 |-------------------------|------------|---------------------------|
@@ -52,9 +55,9 @@ ZSH is configured in the `zshrc.symlink` file, which will be symlinked to the ho
 
 ### Installation
 
-Vim is likely already installed on your system. If using a Mac, MacVim will be installed from Homebrew. Neovim will also be installed from Homebrew by default on a Mac. For other systems, you may need to install Neovim manually. See their [web site](https://neovim.io) for more information.
+Vim is likely already installed on your system. If using a Mac, [MacVim](http://macvim-dev.github.io/macvim/) will be installed from Homebrew. Neovim will also be installed from Homebrew by default on a Mac. For other systems, you may need to install Neovim manually. See their [web site](https://neovim.io) for more information.
 
-[`link.sh`](install/link.sh) will symlink the XDG configuration directory into your home directory and will then create symlinks for `.vimrc` and `.vim` over to the Neovim configuration so that Vim and Neovim will both be configured in the same way from the same files. The benefit of this configuration is that you only have to maintain a single vim configuration for both, so that if Neovim (which is still alpha software) has issues, you can very seamlessly transition back to vim with no big impact to your productivity.
+[`link.sh`](install/link.sh) will symlink the configuration directory into your home directory and will then create symlinks for `.vimrc` and `.vim` over to the Neovim configuration so that Vim and Neovim will both be configured in the same way from the same files. The benefit of this configuration is that you only have to maintain a single vim configuration for both, so that if Neovim (which is still alpha software) has issues, you can very seamlessly transition back to vim with no big impact to your productivity.
 
 Inside of [`.zshrc`](zsh/zshrc.symlink), the `EDITOR` shell variable is set to `nvim`, defaulting to Neovim for editor tasks, such as git commit messages. Additionally, I have aliased `vim` to `nvim` in [`aliases.zsh`](zsh/aliases.zsh) You can remove this if you would rather not alias the `vim` command to `nvim`.
 

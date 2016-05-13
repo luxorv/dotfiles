@@ -4,6 +4,9 @@
 
 dotfiles="$HOME/.dotfiles"
 
+echo "Initializing submodule(s)"
+git submodule update --init --recursive
+
 echo " ==== Installing/Updating dotfiles... ==== \n"
 
 # Creating Symlinks
