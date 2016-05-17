@@ -1,1 +1,0 @@
-/Users/Luxorv/.spf13-vim-3/.vimrc
