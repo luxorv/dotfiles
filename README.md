@@ -4,6 +4,8 @@ This dotfiles repository was highly influenced by Nick Nisi's [dotfiles reposito
 
 This is a collection of me, of my workspace and my tools. Most of my dotfiles are vim/nvim, tmux, and zsh configurations.
 
+![](http://i.imgur.com/SRGyQIt.jpg)
+
 ## Contents
 
 + [Initial Setup and Installation](#initial-setup-and-installation)
