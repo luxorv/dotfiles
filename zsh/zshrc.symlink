@@ -42,10 +42,11 @@ HIST_STAMPS="mm/dd/yyyy"
 
 # User configuration
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-
+bindkey -v
 # Run oh-my-zsh script.
 #source $OH-MY-ZSH/oh-my-zsh.sh
-
+export PYENV_ROOT=/usr/local/opt/pyenv  
+eval "$(pyenv init -)"
 # Base16 Shell
 # if [ -z "$THEME" ]; then
     export THEME="base16-monokai"
