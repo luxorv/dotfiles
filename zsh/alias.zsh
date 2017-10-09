@@ -12,8 +12,8 @@ alias json="json -c"
 alias rmf="rm -rf"
 alias py2='/usr/local/opt/pyenv/versions/2.7.11/bin/python'
 alias py3='/usr/local/opt/pyenv/versions/3.4.4/bin/python'
-alias virtualenv2='/usr/local/opt/pyenv/versions/2.7.11/bin/virtualenv'
-alias virtualenv3='/usr/local/opt/pyenv/versions/3.4.4/bin/virtualenv'
+alias venv2='/usr/local/opt/pyenv/versions/2.7.11/bin/virtualenv'
+alias venv3='/usr/local/opt/pyenv/versions/3.4.4/bin/virtualenv'
 # Miscellaneous.
 alias quit="exit"
 alias week="date +%V"
