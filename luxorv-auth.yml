@@ -1,0 +1,14 @@
+---
+name: luxorv-auth
+project_root: "/Users/Luxorv/Development/python/luxorv-auth/"
+windows:
+- editor:
+    layout: main-vertical
+    panes:
+    - cd /Users/Luxorv/Development/python/luxorv-auth
+- flask:
+    panes:
+    - cd /Users/Luxorv/Development/python/luxorv-auth
+- zsh:
+    panes:
+    - cd /Users/Luxorv

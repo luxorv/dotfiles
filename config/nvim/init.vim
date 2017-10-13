@@ -1,5 +1,7 @@
 " ======================== Vimrc File. =============================.
 
+set clipboard=unnamed
+
 " Section Plugins {{{
 call plug#begin('~/.config/nvim/plugged')
 
@@ -18,14 +20,15 @@ Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
 Plug 'ryanoasis/vim-webdevicons'
 Plug 'ervandew/supertab'
 Plug 'jiangmiao/auto-pairs'
-
+Plug 'artur-shaik/vim-javacomplete2'
+Plug 'Townk/vim-autoclose'
 " Language Specific
 Plug 'elzr/vim-json', { 'for': 'json' } " JSON support
 " Python Specifics
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
-Plug 'klen/python-mode', {'for': 'python'}
+"Plug 'python-mode/python-mode', {'for': 'python'}
 Plug 'tmhedberg/SimpylFold', {'for': 'python'}
 Plug 'davidhalter/jedi-vim', {'for': 'python'}
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
@@ -79,7 +82,7 @@ set clipboard=unnamed
 set nobackup
 set noswapfile
 let g:python_host_prog = '/usr/local/opt/pyenv/versions/2.7.11/bin/python'
-let g:python3_host_prog = '/usr/local/opt/pyenv/versions/3.4.4/bin/python'
+let g:python3_host_prog = '/usr/local/opt/pyenv/versions/3.6.2/bin/python'
 " faster redrawing
 set ttyfast
 
@@ -94,7 +97,7 @@ set foldlevel=99
 set foldnestmax=10 " deepest fold is 10 levels
 nnoremap <space> za
 
-set wildignore=*.swp,*.bak,*.pyc,*.class
+set wildignore=*/env/*,*.swp,*.bak,*.pyc,*.class,.python-version
 set title                " change the terminal's title
 set visualbell           " don't beep
 set noerrorbells         " don't beep
@@ -153,10 +156,11 @@ inoremap jk <esc>
 nmap <leader>md :%!markdown --html4tags <cr>
 
 " remove extra whitespace
-nmap <leader><space> :%s/\s\+$<cr>
+map <leader><space> :%s/\s\+$<cr>
 
 " wipout buffer
-nmap <silent> <leader>b :bw<cr>
+nmap <silent> <leader>p :bn<cr>
+nmap <silent> <leader>d :bd<cr>
 
 " shortcut to save
 nmap <leader>, :w<cr>
@@ -226,6 +230,7 @@ nnoremap <silent> $ g$
 nnoremap <leader>/ "fyiw :/<c-r>f<cr>
 
 " inoremap <tab> <c-r>=Smart_TabComplete()<CR>
+inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 map <leader>r :call RunCustomCommand()<cr>
 " map <leader>s :call SetCustomCommand()<cr>
@@ -316,11 +321,42 @@ endif
 
 let g:AutoPairsFlyMode = 1
 
-let g:pymode = 1
-let g:pymode_indent = 1
-let g:pymode_folding = 1
-let g:pymode_run = 1
-let g:pymode_run_bind = '<leader>r'
+function! MakeSession()
+  let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
+  if (filewritable(b:sessiondir) != 2)
+    exe 'silent !mkdir -p ' b:sessiondir
+    redraw!
+  endif
+  let b:filename = b:sessiondir . '/session.vim'
+  exe "mksession! " . b:filename
+endfunction
+
+function! LoadSession()
+  let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
+  let b:sessionfile = b:sessiondir . "/session.vim"
+  if (filereadable(b:sessionfile))
+    exe 'source ' b:sessionfile
+  else
+    echo "No session loaded."
+  endif
+endfunction
+
+" Adding automatons for when entering or leaving Vim
+if(argc() == 0)
+  au VimEnter * nested :call LoadSession()
+endif
+
+au VimLeave * :call MakeSession()
+nnoremap <leader>ms :call MakeSession()<CR>
+
+let g:jedi#completions_enabled = 0
+" au Vimhh:call MakeSession()
+"let g:pymode = 1
+"let g:pymode_indent = 1
+" let g:pymode_folding = 1
+"let g:pymode_run = 1
+"let g:pymode_run_bind = '<leader>r'
+"let g:pymode_python = 'python3'
 
 call ApplyLocalSettings(expand('.'))
 
